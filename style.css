@@ -1,0 +1,93 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+    margin: auto;
+    height: 100vh;
+    background-color: black;
+}
+
+.container1,
+.container3 {
+    width: 25%;
+    height: 100vh;
+    opacity: 0;
+    background-image: none;
+    background-size: contain;
+}
+
+.mode-buttons {
+    width: 425px;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    z-index: 9999;
+    top: 15px;
+}
+
+.wand-of-light,
+.wand-of-memories {
+    padding: 9px;
+    font-size: 25px;
+    font-weight: 700;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: lightpink;
+    cursor: pointer;
+    font-family: 'Dancing Script', cursive;
+    background: none;
+    color: white;
+    transition: font-size 300ms ease-in-out;
+}
+
+
+.wand-title {
+    color: white;
+    position: absolute;
+    z-index: 9998;
+    font-family: 'Dancing Script', cursive;
+    top: 20px;
+    font-size: 70px;
+    opacity: 0;
+    height: 150px;
+    padding-top: 15px;
+    cursor: pointer;
+    max-width: 800px;
+}
+
+.block-container {
+    width: 50%;
+    height: 95%;
+    background-color: black;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px auto;
+    position: relative;
+    cursor: pointer;
+}
+
+.block {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    opacity: 0;
+    margin: auto;
+    z-index: 9998;
+}
+
+@media screen and (max-width: 680px) {
+    .wand-title {
+        font-size: 60px;
+    }
+
+    .mode-buttons {
+        width: 405px;
+    }
+
+}

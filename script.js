@@ -3,6 +3,7 @@ const blockElement = document.querySelectorAll(".block");
 const wandOfLightButton = document.querySelector(".wand-of-light");
 const wandOfMemoriesButton = document.querySelector(".wand-of-memories");
 const wandTitle = document.querySelector(".wand-title");
+const greeting = document.querySelector(".greeting");
 const leftFireworks = document.querySelector(".container1");
 const rightFireworks = document.querySelector(".container3");
 
@@ -38,23 +39,32 @@ const plainColors = [
   "#FF6347",
 ];
 
-const colorButtons = () => {
+const styleLanding = () => {
   const randomNumberPlain = Math.floor(Math.random() * plainColors.length);
   const randomNumberborder = Math.floor(Math.random() * plainColors.length);
   wandOfLightButton.style.borderColor = "buttonBorder";
   wandOfLightButton.style.borderColor = plainColors[randomNumberborder];
   wandOfLightButton.style.color = plainColors[randomNumberPlain];
 
-  const randomNumberPlain2 = Math.floor(Math.random() * plainColors.length);
-  const randomNumberborder2 = Math.floor(Math.random() * plainColors.length);
-  wandOfMemoriesButton.style.borderColor = "buttonBorder";
-  wandOfMemoriesButton.style.borderColor = plainColors[randomNumberPlain2];
-  wandOfMemoriesButton.style.color = plainColors[randomNumberborder2];
+  const randomNumber = Math.floor(Math.random() * plainColors.length);
+  greeting.style.color = plainColors[randomNumber];
+  greeting.style.opacity = "1";
+  greeting.style.transition = "opacity 1300ms ease-out";
+  greeting.style.fontSize = "70px";
+  greeting.style.transition = "font-size 1300ms ease-out";
+
+  wandOfLightButton.style.opacity = "1";
+  wandOfLightButton.style.transition = "opacity 3000ms";
+  wandOfLightButton.style.transitionDelay = "1000ms";
+
+  blockContainer.style.backgroundColor = "black";
+  document.body.style.backgroundColor = "black";
 };
-colorButtons();
+styleLanding();
+
 const bdayCard = () => {
   const speech =
-    "Happy Birthday My Love. I am so proud of you and the person you've become. You have supported me unconditionally form day one and showed me a love I didnt know existed. I'll always be here for you the same way you been there for me. I love you. -Trent";
+    "My love, I am so proud of you and the person you've become. You have supported me unconditionally from day one and showed me a love I didnt know was possible. I'll always be here for you the same way you've always been there for me. I love you. -Trent";
   speech.split("").forEach((character) => {
     const characterSpan = document.createElement("span");
     characterSpan.innerText = character;
@@ -72,35 +82,31 @@ const bdayCard = () => {
 
 const WOLSwitch = () => {
   wandTitle.innerHTML = "";
+  blockContainer.style.backgroundColor = "#0F0F1A";
+  document.body.style.backgroundColor = "#0F0F1A";
   wandTitle.style.transition = "opacity 2000ms ease-in-out";
   wandTitle.style.opacity = "1";
-  wandOfLightButton.style.fontSize = "10px";
-  wandOfMemoriesButton.style.fontSize = "25px";
   wandTitle.style.color = "transparent";
-  leftFireworks.style.transition = "opacity 1000ms ease-in-out";
+  leftFireworks.style.transition = "opacity 1000ms ease-in";
   leftFireworks.style.opacity = "1";
-  leftFireworks.style.backgroundImage = "url(/images/fireworks2.jpeg)";
-  rightFireworks.style.transition = "opacity 1000ms ease-in-out";
+  leftFireworks.style.backgroundImage = "url(/images/fireworks10.jpeg)";
+  rightFireworks.style.transition = "opacity 1000ms ease-in";
   rightFireworks.style.opacity = "1";
-  rightFireworks.style.backgroundImage = "url(/images/fireworks2.jpeg)";
-  wandOfMemoriesOn = false;
+  rightFireworks.style.backgroundImage = "url(/images/fireworks10.jpeg)";
+
+  greeting.style.opacity = "0";
+  greeting.style.transition = "opacity 1200ms ease-in";
+  greeting.style.fontSize = "0px";
+  greeting.style.transition = "font-size 1200ms ease-in";
+
+  wandOfLightButton.style.opacity = "0";
+  wandOfLightButton.style.transition = "opacity 1000ms ease-in";
+  wandOfLightButton.disabled = "true";
+
   wandOfLightOn = true;
   titleActivated = true;
   wandOfLightOn === true ? wandOfLight() : (wandOfLightOn = false);
   bdayCard();
-};
-const WOMSwitch = () => {
-  const randomNumber = Math.floor(Math.random() * plainColors.length);
-  wandTitle.innerText = "Wand of Memories";
-  wandTitle.style.transition = "opacity 2000ms ease-in-out";
-  wandTitle.style.opacity = "1";
-  wandOfLightButton.style.fontSize = "25px";
-  wandOfMemoriesButton.style.fontSize = "10px";
-  wandTitle.style.color = plainColors[randomNumber];
-  wandOfLightOn = false;
-  wandOfMemoriesOn = true;
-  titleActivated = true;
-  // wandOfMemoriesOn === true ? wandOfMemories() : wandOfMemoriesOn = false;
 };
 wandTitle.addEventListener("mouseenter", () => {
   if (titleActivated === true) {
@@ -108,6 +114,26 @@ wandTitle.addEventListener("mouseenter", () => {
     wandTitle.style.opacity = "1";
   }
 });
+//Greetings
+const colorGreeting = () => {
+  const greetingText = "Happy Birthday My Love";
+  greetingText.split("").forEach((character) => {
+    const characterSpan = document.createElement("span");
+    characterSpan.classList.add("greetLetter");
+    characterSpan.innerText = character;
+    greeting.appendChild(characterSpan);
+  });
+  const greetLetter = document.querySelectorAll(".greetLetter");
+
+  greetLetter.forEach((letter) => {
+    letter.addEventListener("mouseenter", () => {
+      const randomNumber = Math.floor(Math.random() * plainColors.length);
+      letter.style.color = plainColors[randomNumber];
+    });
+  });
+};
+colorGreeting();
+
 wandOfLightButton.addEventListener("mouseenter", () => {
   const randomNumberPlain = Math.floor(Math.random() * plainColors.length);
   const randomNumberborder = Math.floor(Math.random() * plainColors.length);
@@ -136,7 +162,7 @@ wandOfMemoriesButton.addEventListener("mouseleave", () => {
 const wandOfLight = () => {
   blockElement.forEach((block) => {
     block.addEventListener("mouseenter", () => {
-      block.style.opacity = ".6";
+      block.style.opacity = ".8";
       block.style.transition = "opacity";
       const randomNumber = Math.floor(Math.random() * gradientColors.length);
       block.style.backgroundImage = gradientColors[randomNumber];
@@ -152,7 +178,6 @@ const wandOfLight = () => {
 
 const bomb = () => {
   wandOfLightButton.addEventListener("mousedown", () => {
-    blockContainer.style.height = "80vh";
     blockElement.forEach((block) => {
       block.style.transition = "opacity ease-in";
       block.style.opacity = ".9";
@@ -164,8 +189,6 @@ const bomb = () => {
     blockElement.forEach((block) => {
       block.style.transition = "opacity 2000ms ease-out";
       block.style.opacity = "0";
-      // const randomNumber = Math.floor(Math.random() * gradientColors.length);
-      // block.style.backgroundImage = gradientColors[randomNumber];
     });
   });
 };

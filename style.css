@@ -6,34 +6,44 @@ body {
     padding: 0;
     margin: auto;
     height: 100vh;
-    background-color: black;
+    background-color: #0F0F1A;
 }
 
 .container1,
 .container3 {
     width: 25%;
-    height: 100vh;
+    height: 70vh;
     opacity: 0;
-    background-image: none;
-    background-size: contain;
+    background-size: cover;
+    margin: 60px auto auto;
+}
+
+.greeting {
+    color: white;
+    position: absolute;
+    z-index: 9999;
+    font-family: 'Dancing Script', cursive;
+    top: 20vh;
+    font-size: 0px;
+    opacity: 0;
+    height: 250px;
+
 }
 
 .mode-buttons {
     width: 425px;
-    height: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-content: space-around;
     position: absolute;
     z-index: 9999;
-    top: 15px;
+    top: 40vh;
 }
 
 .wand-of-light,
 .wand-of-memories {
-    padding: 9px;
-    font-size: 25px;
+    padding: 10px;
+    font-size: 30px;
     font-weight: 700;
     border-radius: 10px;
     border-width: 2px;
@@ -45,6 +55,13 @@ body {
     transition: font-size 300ms ease-in-out;
 }
 
+.wand-of-memories {
+    display: none;
+}
+
+.wand-of-light {
+    opacity: 0;
+}
 
 .wand-title {
     color: white;
@@ -52,7 +69,7 @@ body {
     z-index: 9998;
     font-family: 'Dancing Script', cursive;
     top: 20px;
-    font-size: 70px;
+    font-size: 72px;
     opacity: 0;
     height: 150px;
     padding-top: 15px;
@@ -62,9 +79,8 @@ body {
 
 .block-container {
     width: 50%;
-    height: 95%;
+    height: 100%;
     background-color: black;
-    border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
     margin: 0px auto;
@@ -79,11 +95,12 @@ body {
     opacity: 0;
     margin: auto;
     z-index: 9998;
+
 }
 
 @media screen and (max-width: 680px) {
     .wand-title {
-        font-size: 60px;
+        font-size: 40px;
     }
 
     .mode-buttons {

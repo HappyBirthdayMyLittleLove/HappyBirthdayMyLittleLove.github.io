@@ -16,14 +16,16 @@ body {
     z-index: 9999;
     top: 20vh;
     height: 250px;
+    opacity: 0;
+    font-size: 0px;
     animation: greeting-load 2000ms ease-out;
     animation-fill-mode: forwards;
 }
 
 @keyframes greeting-load {
     0% {
-        opacity: 0;
-        font-size: 0px;
+        opacity: .1;
+        font-size: 0.1px;
     }
 
     100% {
@@ -62,8 +64,8 @@ body {
     border-color: lightpink;
     font-family: 'Dancing Script', cursive;
     background: none;
-    opacity: 0;
     cursor: pointer;
+    opacity: 0;
     animation: WOL-button-load 3000ms 1000ms;
     animation-fill-mode: forwards;
 
@@ -71,7 +73,7 @@ body {
 
 @keyframes WOL-button-load {
     0% {
-        opacity: 0;
+        opacity: .1;
     }
 
     100% {

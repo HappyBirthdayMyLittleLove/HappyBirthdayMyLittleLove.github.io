@@ -95,7 +95,7 @@ const greetingKeyFrames = new KeyframeEffect(
 );
 const WOLButtonKeyFrames = new KeyframeEffect(
   wandOfLightButton,
-  [{ opacity: "0" }],
+  { opacity: "0" },
   { duration: 800, fill: "forwards" }
 );
 const greetingAnimation = new Animation(greetingKeyFrames);

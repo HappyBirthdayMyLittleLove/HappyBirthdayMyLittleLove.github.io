@@ -1,15 +1,11 @@
 const blockContainer = document.getElementById("blockContainer");
 const blockElement = document.querySelectorAll(".block");
 const wandOfLightButton = document.querySelector(".wand-of-light");
-const wandOfMemoriesButton = document.querySelector(".wand-of-memories");
 const wandTitle = document.querySelector(".wand-title");
 const greeting = document.querySelector(".greeting");
 const leftFireworks = document.querySelector(".container1");
 const rightFireworks = document.querySelector(".container3");
 
-let wandOfLightOn;
-let wandOfMemoriesOn;
-let titleActivated;
 const gradientColors = [
   "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)",
   "linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)",
@@ -39,100 +35,36 @@ const plainColors = [
   "#FF6347",
 ];
 
-const styleLanding = () => {
-  const randomNumberPlain = Math.floor(Math.random() * plainColors.length);
-  const randomNumberborder = Math.floor(Math.random() * plainColors.length);
-  wandOfLightButton.style.borderColor = "buttonBorder";
-  wandOfLightButton.style.borderColor = plainColors[randomNumberborder];
-  wandOfLightButton.style.color = plainColors[randomNumberPlain];
+greeting.style.transition = "opacity 1300ms ease-in-out";
+greeting.style.transition = "font-size 1300ms ease-in-out";
+greeting.style.opacity = "1";
+greeting.style.fontSize = "70px";
+wandOfLightButton.style.opacity = "1";
+wandOfLightButton.style.transition = "opacity 3000ms";
+wandOfLightButton.style.transitionDelay = "1000ms";
 
-  const randomNumber = Math.floor(Math.random() * plainColors.length);
-  greeting.style.color = plainColors[randomNumber];
-  greeting.style.opacity = "1";
-  greeting.style.transition = "opacity 1300ms ease-out";
-  greeting.style.fontSize = "70px";
-  greeting.style.transition = "font-size 1300ms ease-out";
+const randomNumber = Math.floor(Math.random() * plainColors.length);
+const randomNumberPlain = Math.floor(Math.random() * plainColors.length);
+const randomNumberborder = Math.floor(Math.random() * plainColors.length);
+greeting.style.color = plainColors[randomNumber];
+wandOfLightButton.style.color = plainColors[randomNumberPlain];
+wandOfLightButton.style.borderColor = "buttonBorder";
+wandOfLightButton.style.borderColor = plainColors[randomNumberborder];
 
-  wandOfLightButton.style.opacity = "1";
-  wandOfLightButton.style.transition = "opacity 3000ms";
-  wandOfLightButton.style.transitionDelay = "1000ms";
-
-  blockContainer.style.backgroundColor = "black";
-  document.body.style.backgroundColor = "black";
-};
-styleLanding();
-
-const bdayCard = () => {
-  const speech =
-    "My love, I am so proud of you and the person you've become. You have supported me unconditionally from day one and showed me a love I didnt know was possible. I'll always be here for you the same way you've always been there for me. I love you. -Trent";
-  speech.split("").forEach((character) => {
-    const characterSpan = document.createElement("span");
-    characterSpan.innerText = character;
-    characterSpan.classList.add("characters");
-    wandTitle.appendChild(characterSpan);
-  });
-  const characters = document.querySelectorAll("span.characters");
-  characters.forEach((letter) => {
-    letter.addEventListener("mouseenter", () => {
-      const randomNumber = Math.floor(Math.random() * plainColors.length);
-      letter.style.color = plainColors[randomNumber];
-    });
-  });
-};
-
-const WOLSwitch = () => {
-  wandTitle.innerHTML = "";
-  blockContainer.style.backgroundColor = "#0F0F1A";
-  document.body.style.backgroundColor = "#0F0F1A";
-  wandTitle.style.transition = "opacity 2000ms ease-in-out";
-  wandTitle.style.opacity = "1";
-  wandTitle.style.color = "transparent";
-  leftFireworks.style.transition = "opacity 1000ms ease-in";
-  leftFireworks.style.opacity = "1";
-  leftFireworks.style.backgroundImage = "url(/images/fireworks10.jpeg)";
-  rightFireworks.style.transition = "opacity 1000ms ease-in";
-  rightFireworks.style.opacity = "1";
-  rightFireworks.style.backgroundImage = "url(/images/fireworks10.jpeg)";
-
-  greeting.style.opacity = "0";
-  greeting.style.transition = "opacity 1200ms ease-in";
-  greeting.style.fontSize = "0px";
-  greeting.style.transition = "font-size 1200ms ease-in";
-
-  wandOfLightButton.style.opacity = "0";
-  wandOfLightButton.style.transition = "opacity 1000ms ease-in";
-  wandOfLightButton.disabled = "true";
-
-  wandOfLightOn = true;
-  titleActivated = true;
-  wandOfLightOn === true ? wandOfLight() : (wandOfLightOn = false);
-  bdayCard();
-};
-wandTitle.addEventListener("mouseenter", () => {
-  if (titleActivated === true) {
-    wandTitle.style.transition = "opacity 500ms";
-    wandTitle.style.opacity = "1";
-  }
+const greetingText = "Happy Birthday My Love";
+greetingText.split("").forEach((character) => {
+  const characterSpan = document.createElement("span");
+  characterSpan.innerText = character;
+  greeting.appendChild(characterSpan);
 });
-//Greetings
-const colorGreeting = () => {
-  const greetingText = "Happy Birthday My Love";
-  greetingText.split("").forEach((character) => {
-    const characterSpan = document.createElement("span");
-    characterSpan.classList.add("greetLetter");
-    characterSpan.innerText = character;
-    greeting.appendChild(characterSpan);
-  });
-  const greetLetter = document.querySelectorAll(".greetLetter");
+const greetLetter = document.querySelectorAll(".greeting span");
 
-  greetLetter.forEach((letter) => {
-    letter.addEventListener("mouseenter", () => {
-      const randomNumber = Math.floor(Math.random() * plainColors.length);
-      letter.style.color = plainColors[randomNumber];
-    });
+greetLetter.forEach((letter) => {
+  letter.addEventListener("mouseenter", () => {
+    const randomNumberLetter = Math.floor(Math.random() * plainColors.length);
+    letter.style.color = plainColors[randomNumberLetter];
   });
-};
-colorGreeting();
+});
 
 wandOfLightButton.addEventListener("mouseenter", () => {
   const randomNumberPlain = Math.floor(Math.random() * plainColors.length);
@@ -146,41 +78,66 @@ wandOfLightButton.addEventListener("mouseleave", () => {
   wandOfLightButton.style.backgroundImage = "";
   wandOfLightButton.style.borderColor = "";
 });
-wandOfMemoriesButton.addEventListener("mouseenter", () => {
-  const randomNumberPlain = Math.floor(Math.random() * plainColors.length);
-  const randomNumberborder = Math.floor(Math.random() * plainColors.length);
 
-  wandOfMemoriesButton.style.borderColor = "buttonBorder";
-  wandOfMemoriesButton.style.borderColor = plainColors[randomNumberPlain];
-  wandOfMemoriesButton.style.color = plainColors[randomNumberborder];
-});
-wandOfMemoriesButton.addEventListener("mouseleave", () => {
-  wandOfMemoriesButton.style.backgroundImage = "";
-  wandOfMemoriesButton.style.borderColor = "";
-});
+const bdayCard = () => {
+  const speech =
+    "My love, I am so proud of you and the person you've become. You have unconditionally supported me from day one and showed me a love I didnt know was possible. I'll always be here for you the same way you've always been there for me. I love you. -Trent";
+  speech.split("").forEach((character) => {
+    const characterSpan = document.createElement("span");
+    characterSpan.innerText = character;
+    wandTitle.appendChild(characterSpan);
+  });
+  const characters = document.querySelectorAll(".wand-title span");
 
-const wandOfLight = () => {
-  blockElement.forEach((block) => {
-    block.addEventListener("mouseenter", () => {
-      block.style.opacity = ".8";
-      block.style.transition = "opacity";
-      const randomNumber = Math.floor(Math.random() * gradientColors.length);
-      block.style.backgroundImage = gradientColors[randomNumber];
-    });
-    block.addEventListener("mouseleave", () => {
-      block.style.opacity = "0";
-      block.style.transition = "opacity 1000ms";
-      const randomNumber = Math.floor(Math.random() * gradientColors.length);
-      block.style.backgroundImage = gradientColors[randomNumber];
+  characters.forEach((letter) => {
+    letter.addEventListener("mouseenter", () => {
+      const randomNumberLetter = Math.floor(Math.random() * plainColors.length);
+      letter.style.color = plainColors[randomNumberLetter];
     });
   });
+};
+// const wandOfLight = () => {
+//   blockElement.forEach((block) => {
+//     block.addEventListener("mouseenter", () => {
+//       block.style.opacity = ".7";
+//       block.style.transition = "opacity";
+//       const randomNumber = Math.floor(Math.random() * gradientColors.length);
+//       block.style.backgroundImage = gradientColors[randomNumber];
+//     });
+//     block.addEventListener("mouseleave", () => {
+//       block.style.opacity = "0";
+//       block.style.transition = "opacity 1000ms";
+//       const randomNumber = Math.floor(Math.random() * gradientColors.length);
+//       block.style.backgroundImage = gradientColors[randomNumber];
+//     });
+//   });
+// };
+
+const WOLSwitch = () => {
+  blockContainer.style.backgroundColor = "#0F0F1A";
+  document.body.style.backgroundColor = "#0F0F1A";
+
+  greeting.style.transition = "opacity 800ms ease-in";
+  greeting.style.opacity = "0";
+
+  wandOfLightButton.style.opacity = "0";
+  wandOfLightButton.style.transition = "opacity 800ms ease-in";
+  wandOfLightButton.disabled = "true";
+
+  wandTitle.innerHTML = "";
+  wandTitle.style.transition = "opacity 2000ms ease-in-out";
+  wandTitle.style.opacity = "1";
+  wandTitle.style.color = "transparent";
+  leftFireworks.style.opacity = "1";
+  rightFireworks.style.opacity = "1";
+  bdayCard();
 };
 
 const bomb = () => {
   wandOfLightButton.addEventListener("mousedown", () => {
     blockElement.forEach((block) => {
       block.style.transition = "opacity ease-in";
-      block.style.opacity = ".9";
+      block.style.opacity = ".8";
       const randomNumber = Math.floor(Math.random() * gradientColors.length);
       block.style.backgroundImage = gradientColors[randomNumber];
     });

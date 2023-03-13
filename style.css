@@ -6,16 +6,7 @@ body {
     padding: 0;
     margin: auto;
     height: 100vh;
-    background-color: #0F0F1A;
-}
-
-.container1,
-.container3 {
-    width: 25%;
-    height: 70vh;
-    opacity: 0;
-    background-size: cover;
-    margin: 60px auto auto;
+    background-color: black;
 }
 
 .greeting {
@@ -27,7 +18,19 @@ body {
     font-size: 0px;
     opacity: 0;
     height: 250px;
+    transition: opacity 2000ms ease-in-out;
+}
 
+
+.container1,
+.container3 {
+    width: 25%;
+    height: 70vh;
+    opacity: 0;
+    background-size: cover;
+    margin: 60px auto auto;
+    background-image: url(/images/fireworks10.jpeg);
+    transition: opacity 1000ms ease-in;
 }
 
 .mode-buttons {
@@ -40,40 +43,29 @@ body {
     top: 40vh;
 }
 
-.wand-of-light,
-.wand-of-memories {
+.wand-of-light {
     padding: 10px;
     font-size: 30px;
     font-weight: 700;
     border-radius: 10px;
     border-width: 2px;
     border-color: lightpink;
-    cursor: pointer;
     font-family: 'Dancing Script', cursive;
     background: none;
     color: white;
-    transition: font-size 300ms ease-in-out;
-}
-
-.wand-of-memories {
-    display: none;
-}
-
-.wand-of-light {
     opacity: 0;
+    transition: opacity 1000ms ease-in;
 }
 
 .wand-title {
-    color: white;
     position: absolute;
-    z-index: 9998;
+    z-index: 9999;
     font-family: 'Dancing Script', cursive;
     top: 20px;
     font-size: 72px;
     opacity: 0;
     height: 150px;
     padding-top: 15px;
-    cursor: pointer;
     max-width: 800px;
 }
 
@@ -85,7 +77,6 @@ body {
     flex-wrap: wrap;
     margin: 0px auto;
     position: relative;
-    cursor: pointer;
 }
 
 .block {
@@ -95,7 +86,7 @@ body {
     opacity: 0;
     margin: auto;
     z-index: 9998;
-
+    background-size: cover;
 }
 
 @media screen and (max-width: 680px) {

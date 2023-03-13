@@ -1,8 +1,15 @@
 body {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: 0;
     margin: auto;
     height: 100vh;
@@ -17,8 +24,10 @@ body {
     height: 250px;
     opacity: 0;
     font-size: 0px;
-    animation: greeting-load 2000ms;
-    animation-fill-mode: forwards;
+    -webkit-animation: greeting-load 2000ms;
+            animation: greeting-load 2000ms;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
 }
 
 .container1,
@@ -29,14 +38,22 @@ body {
     background-size: cover;
     margin: 60px auto auto;
     background-image: url(/images/fireworks10.jpeg);
+    -webkit-transition: opacity 1000ms ease-in;
+    -o-transition: opacity 1000ms ease-in;
     transition: opacity 1000ms ease-in;
 }
 
 .mode-buttons {
     width: 425px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     position: absolute;
     z-index: 9999;
     top: 40vh;
@@ -53,8 +70,10 @@ body {
     background: none;
     cursor: pointer;
     opacity: 0;
-    animation: WOL-button-load 3000ms 1000ms;
-    animation-fill-mode: forwards;
+    -webkit-animation: WOL-button-load 3000ms 1000ms;
+            animation: WOL-button-load 3000ms 1000ms;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
 }
 
 
@@ -74,8 +93,11 @@ body {
     width: 50%;
     height: 100%;
     background-color: black;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     margin: 0px auto;
     position: relative;
 }
@@ -90,23 +112,41 @@ body {
     background-size: cover;
 }
 
+@-webkit-keyframes greeting-load {
+    0% {
+        opacity: 0;
+        font-size: 0px;
+
+    }
+
+    100% {
+        opacity: 1;
+        font-size: 70px;
+
+    }
+}
+
 @keyframes greeting-load {
+    0% {
+        opacity: 0;
+        font-size: 0px;
+
+    }
+
+    100% {
+        opacity: 1;
+        font-size: 70px;
+
+    }
+}
+
+@-webkit-keyframes WOL-button-load {
     0% {
         opacity: 0;
     }
 
     100% {
         opacity: 1;
-    }
-}
-
-@keyframes greeting-load {
-    0% {
-        font-size: 0px;
-    }
-
-    100% {
-        font-size: 70px;
     }
 }
 

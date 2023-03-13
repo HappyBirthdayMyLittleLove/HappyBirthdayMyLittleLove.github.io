@@ -6,6 +6,11 @@ const greeting = document.querySelector(".greeting");
 const leftFireworks = document.querySelector(".container1");
 const rightFireworks = document.querySelector(".container3");
 
+const width =
+  window.innerWidth ||
+  document.documentElement.clientWidth ||
+  document.body.clientWidth;
+
 const gradientColors = [
   "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)",
   "linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)",
@@ -43,10 +48,15 @@ greetingText.split("").forEach((character) => {
 });
 const greetLetter = document.querySelectorAll(".greeting span");
 greetLetter.forEach((letter) => {
-  letter.addEventListener("mouseenter", () => {
+  if (width > 780) {
+    letter.addEventListener("mouseenter", () => {
+      const randomNumberLetter = Math.floor(Math.random() * plainColors.length);
+      letter.style.color = plainColors[randomNumberLetter];
+    });
+  } else {
     const randomNumberLetter = Math.floor(Math.random() * plainColors.length);
     letter.style.color = plainColors[randomNumberLetter];
-  });
+  }
 });
 
 const randomNumber = Math.floor(Math.random() * plainColors.length);
@@ -81,10 +91,17 @@ const bdayCard = () => {
   const characters = document.querySelectorAll(".wand-title span");
 
   characters.forEach((letter) => {
-    letter.addEventListener("mouseenter", () => {
+    if (width > 780) {
+      letter.addEventListener("mouseenter", () => {
+        const randomNumberLetter = Math.floor(
+          Math.random() * plainColors.length
+        );
+        letter.style.color = plainColors[randomNumberLetter];
+      });
+    } else {
       const randomNumberLetter = Math.floor(Math.random() * plainColors.length);
       letter.style.color = plainColors[randomNumberLetter];
-    });
+    }
   });
 };
 
@@ -107,6 +124,12 @@ const makeAnimation = () => {
 };
 const WOLSwitch = () => {
   makeAnimation();
+  if (width < 780) {
+    blockContainer.style.opacity = ".2";
+    blockContainer.style.display = "flex";
+    wandTitle.style.display = "block";
+    blockContainer.style.width = "100%";
+  }
 
   blockContainer.style.backgroundColor = "#0F0F1A";
   document.body.style.backgroundColor = "#0F0F1A";
@@ -122,19 +145,37 @@ const WOLSwitch = () => {
 };
 
 const bomb = () => {
-  wandOfLightButton.addEventListener("mousedown", () => {
-    blockElement.forEach((block) => {
-      block.style.transition = "opacity ease-in";
-      block.style.opacity = ".8";
-      const randomNumber = Math.floor(Math.random() * gradientColors.length);
-      block.style.backgroundImage = gradientColors[randomNumber];
+  if (width > 780) {
+    wandOfLightButton.addEventListener("mousedown", () => {
+      blockElement.forEach((block) => {
+        block.style.transition = "opacity ease-in";
+        block.style.opacity = ".9";
+        const randomNumber = Math.floor(Math.random() * gradientColors.length);
+        block.style.backgroundImage = gradientColors[randomNumber];
+      });
     });
-  });
-  wandOfLightButton.addEventListener("mouseup", () => {
-    blockElement.forEach((block) => {
-      block.style.transition = "opacity 2000ms ease-out";
-      block.style.opacity = "0";
+    wandOfLightButton.addEventListener("mouseup", () => {
+      blockElement.forEach((block) => {
+        block.style.transition = "opacity 2000ms ease-out";
+        block.style.opacity = "0";
+      });
     });
-  });
+  } else {
+    wandOfLightButton.addEventListener("click", () => {
+      blockElement.forEach((block) => {
+        block.style.transition = "opacity ease-in";
+        block.style.opacity = ".8";
+        const randomNumber = Math.floor(Math.random() * gradientColors.length);
+        block.style.backgroundImage = gradientColors[randomNumber];
+      });
+    });
+    wandOfLightButton.addEventListener("click", () => {
+      blockElement.forEach((block) => {
+        block.style.transition = "opacity 1500ms ease-out";
+        block.style.opacity = "0";
+      });
+    });
+  }
 };
+
 bomb();

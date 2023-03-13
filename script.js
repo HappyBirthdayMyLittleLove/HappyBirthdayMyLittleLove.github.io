@@ -122,24 +122,27 @@ const makeAnimation = () => {
   const WOLanimation = new Animation(WOLButtonKeyFrames);
   WOLanimation.play();
 };
+const mobileFireworks = new KeyframeEffect(
+  blockContainer,
+  { opacity: ".5" },
+  { duration: 300, fill: "forwards" }
+);
+const mobileFireworksAnimation = new Animation(mobileFireworks);
+
 const WOLSwitch = () => {
   makeAnimation();
   if (width < 780) {
-    blockContainer.style.opacity = ".2";
+    mobileFireworksAnimation.play();
     blockContainer.style.display = "flex";
     wandTitle.style.display = "block";
     blockContainer.style.width = "100%";
+    blockContainer.style.height = "75%";
   }
-
-  blockContainer.style.backgroundColor = "#0F0F1A";
-  document.body.style.backgroundColor = "#0F0F1A";
   wandOfLightButton.disabled = "true";
   wandTitle.innerHTML = "";
   wandTitle.style.transition = "opacity 2000ms ease-in-out";
   wandTitle.style.opacity = "1";
   wandTitle.style.color = "transparent";
-  leftFireworks.style.opacity = "1";
-  rightFireworks.style.opacity = "1";
 
   bdayCard();
 };
@@ -179,3 +182,24 @@ const bomb = () => {
 };
 
 bomb();
+
+leftFireworks.addEventListener("click", () => {
+  const audioFile = document.getElementById("audio-file");
+  setTimeout(() => {
+    audioFile.play();
+  }, 100);
+});
+rightFireworks.addEventListener("click", () => {
+  const audioFile = document.getElementById("audio-file");
+  setTimeout(() => {
+    audioFile.play();
+  }, 100);
+});
+if (width < 780) {
+  blockContainer.addEventListener("click", () => {
+    const audioFile = document.getElementById("audio-file");
+    setTimeout(() => {
+      audioFile.play();
+    }, 100);
+  });
+}

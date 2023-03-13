@@ -21,23 +21,6 @@ body {
     animation-fill-mode: forwards;
 }
 
-@keyframes greeting-load {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-    0% {
-        font-size: 0px;
-    }
-
-    100% {
-        font-size: 70px;
-    }
-    
-}
-
 .container1,
 .container3 {
     width: 25%;
@@ -73,14 +56,7 @@ body {
     animation: WOL-button-load 3000ms 1000ms;
     animation-fill-mode: forwards;
 }
-@keyframes WOL-button-load {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
+
 
 .wand-title {
     position: absolute;
@@ -112,4 +88,34 @@ body {
     margin: auto;
     z-index: 9998;
     background-size: cover;
+}
+
+@keyframes greeting-load {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes greeting-load {
+    0% {
+        font-size: 0px;
+    }
+
+    100% {
+        font-size: 70px;
+    }
+}
+
+@keyframes WOL-button-load {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

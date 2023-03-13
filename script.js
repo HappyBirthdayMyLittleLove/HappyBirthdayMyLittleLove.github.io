@@ -35,11 +35,13 @@ const plainColors = [
   "#FF6347",
 ];
 
-greeting.style.opacity = "1";
-greeting.style.fontSize = "70px";
-wandOfLightButton.style.opacity = "1";
-wandOfLightButton.style.transition = "opacity 3000ms";
-wandOfLightButton.style.transitionDelay = "1000ms";
+const styleLanding = () => {
+  greeting.style.opacity = "1";
+  greeting.style.fontSize = "70px";
+  wandOfLightButton.style.opacity = "1";
+  wandOfLightButton.style.transition = "opacity 3000ms";
+  wandOfLightButton.style.transitionDelay = "1000ms";
+}
 
 const randomNumber = Math.floor(Math.random() * plainColors.length);
 const randomNumberPlain = Math.floor(Math.random() * plainColors.length);

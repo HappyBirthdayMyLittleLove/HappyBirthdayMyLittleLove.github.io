@@ -7,21 +7,30 @@ body {
     margin: auto;
     height: 100vh;
     background-color: black;
+    font-family: 'Dancing Script', cursive;
 }
 
 .greeting {
     color: white;
     position: absolute;
     z-index: 9999;
-    font-family: 'Dancing Script', cursive;
     top: 20vh;
-    font-size: 0px;
-    opacity: 0;
     height: 250px;
-    transition: opacity 2000ms ease-in-out;
-    transition: font-size 1300ms ease-in-out;
+    animation: greeting-load 2000ms ease-out;
+    animation-fill-mode: forwards;
 }
 
+@keyframes greeting-load {
+    0% {
+        opacity: 0;
+        font-size: 0px;
+    }
+
+    100% {
+        opacity: 1;
+        font-size: 70px;
+    }
+}
 
 .container1,
 .container3 {
@@ -53,9 +62,21 @@ body {
     border-color: lightpink;
     font-family: 'Dancing Script', cursive;
     background: none;
-    color: white;
     opacity: 0;
-    transition: opacity 1000ms ease-in;
+    cursor: pointer;
+    animation: WOL-button-load 3000ms 1000ms;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes WOL-button-load {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .wand-title {
@@ -89,6 +110,7 @@ body {
     z-index: 9998;
     background-size: cover;
 }
+
 
 @media screen and (max-width: 680px) {
     .wand-title {

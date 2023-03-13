@@ -88,26 +88,28 @@ const bdayCard = () => {
   });
 };
 
-const greetingKeyFrames = new KeyframeEffect(
-  greeting,
-  { opacity: "0" },
-  { duration: 800, fill: "forwards" }
-);
-const WOLButtonKeyFrames = new KeyframeEffect(
-  wandOfLightButton,
-  { opacity: "0" },
-  { duration: 800, fill: "forwards" }
-);
-const greetingAnimation = new Animation(greetingKeyFrames);
-const WOLanimation = new Animation(WOLButtonKeyFrames);
+const makeAnimation = () => {
+  const greetingKeyFrames = new KeyframeEffect(
+    greeting,
+    { opacity: "0" },
+    { duration: 800, fill: "forwards" }
+  );
+  const greetingAnimation = new Animation(greetingKeyFrames);
+  greetingAnimation.play();
 
+  const WOLButtonKeyFrames = new KeyframeEffect(
+    wandOfLightButton,
+    { opacity: "0" },
+    { duration: 800, fill: "forwards" }
+  );
+  const WOLanimation = new Animation(WOLButtonKeyFrames);
+  WOLanimation.play();
+};
 const WOLSwitch = () => {
+  makeAnimation();
+
   blockContainer.style.backgroundColor = "#0F0F1A";
   document.body.style.backgroundColor = "#0F0F1A";
-
-  greetingAnimation.play();
-  WOLanimation.play();
-
   wandOfLightButton.disabled = "true";
   wandTitle.innerHTML = "";
   wandTitle.style.transition = "opacity 2000ms ease-in-out";

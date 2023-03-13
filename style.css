@@ -11,27 +11,31 @@ body {
 }
 
 .greeting {
-    color: white;
     position: absolute;
     z-index: 9999;
     top: 20vh;
     height: 250px;
     opacity: 0;
     font-size: 0px;
-    animation: greeting-load 2000ms ease-out;
+    animation: greeting-load 2000ms;
     animation-fill-mode: forwards;
 }
 
 @keyframes greeting-load {
     0% {
-        opacity: .1;
-        font-size: 0.1px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+    0% {
+        font-size: 0px;
     }
 
     100% {
-        opacity: 1;
         font-size: 70px;
     }
+    
 }
 
 .container1,
@@ -68,14 +72,11 @@ body {
     opacity: 0;
     animation: WOL-button-load 3000ms 1000ms;
     animation-fill-mode: forwards;
-
 }
-
 @keyframes WOL-button-load {
     0% {
-        opacity: .1;
+        opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
@@ -111,16 +112,4 @@ body {
     margin: auto;
     z-index: 9998;
     background-size: cover;
-}
-
-
-@media screen and (max-width: 680px) {
-    .wand-title {
-        font-size: 40px;
-    }
-
-    .mode-buttons {
-        width: 405px;
-    }
-
 }

@@ -19,6 +19,7 @@ body {
     opacity: 0;
     height: 250px;
     transition: opacity 2000ms ease-in-out;
+    transition: font-size 1300ms ease-in-out;
 }
 
 

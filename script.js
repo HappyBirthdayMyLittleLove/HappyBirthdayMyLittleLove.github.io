@@ -35,8 +35,6 @@ const plainColors = [
   "#FF6347",
 ];
 
-greeting.style.transition = "opacity 1300ms ease-in-out";
-greeting.style.transition = "font-size 1300ms ease-in-out";
 greeting.style.opacity = "1";
 greeting.style.fontSize = "70px";
 wandOfLightButton.style.opacity = "1";
@@ -96,23 +94,6 @@ const bdayCard = () => {
     });
   });
 };
-// const wandOfLight = () => {
-//   blockElement.forEach((block) => {
-//     block.addEventListener("mouseenter", () => {
-//       block.style.opacity = ".7";
-//       block.style.transition = "opacity";
-//       const randomNumber = Math.floor(Math.random() * gradientColors.length);
-//       block.style.backgroundImage = gradientColors[randomNumber];
-//     });
-//     block.addEventListener("mouseleave", () => {
-//       block.style.opacity = "0";
-//       block.style.transition = "opacity 1000ms";
-//       const randomNumber = Math.floor(Math.random() * gradientColors.length);
-//       block.style.backgroundImage = gradientColors[randomNumber];
-//     });
-//   });
-// };
-
 const WOLSwitch = () => {
   blockContainer.style.backgroundColor = "#0F0F1A";
   document.body.style.backgroundColor = "#0F0F1A";

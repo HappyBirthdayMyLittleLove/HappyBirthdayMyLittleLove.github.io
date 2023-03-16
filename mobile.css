@@ -128,9 +128,9 @@
     .container2 {
         background-image: url(images/fireworks10.jpeg);
         background-repeat: no-repeat;
-        background-size: 90%;
-        background-position: bottom;
-        height: 65%;
+        background-size: 85%;
+        background-position: center;
+        height: 75%;
         width: 100vw;
         margin: auto auto 0px;
         animation: container2-load 2000ms;

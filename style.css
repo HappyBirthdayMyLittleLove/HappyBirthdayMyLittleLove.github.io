@@ -59,7 +59,6 @@ body {
 }
 
 .mode-buttons {
-    width: 425px;
     display: flex;
     justify-content: center;
     align-items: center;

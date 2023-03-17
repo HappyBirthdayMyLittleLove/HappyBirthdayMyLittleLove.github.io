@@ -75,6 +75,7 @@
     body {
         background-color: #0F0F1A;
         height: 95vh;
+        overflow: visible;
     }
 
     .container1,
@@ -118,7 +119,7 @@
 
     .card-content {
         font-size: 30px;
-        height: 100vh;
+        height: 90vh;
         padding: 30px;
         /* padding-top: 50px; */
         margin: auto;

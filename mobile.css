@@ -7,21 +7,18 @@
     .greeting {
         top: 13%;
         opacity: 0;
-        font-size: 0px;
-        animation: greeting-load-mobile 2000ms ease-out 1500ms;
+        font-size: 47px;
+        animation: greeting-load-mobile 2000ms ease-out 1600ms;
         animation-fill-mode: forwards;
     }
 
     @keyframes greeting-load-mobile {
         0% {
             opacity: 0;
-            font-size: 0px;
         }
 
         100% {
             opacity: 1;
-            font-size: 47px;
-
         }
     }
 
